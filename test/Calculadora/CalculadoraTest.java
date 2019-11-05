@@ -5,6 +5,7 @@
  */
 package Calculadora;
 
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 
@@ -19,7 +20,7 @@ public class CalculadoraTest {
 
     @Test
     public void testSuma() {
-        assertEquals(5, Matematicas.suma(2,3));
+        assertEquals(5, Calculadora.suma(2,3));
     }
     
 }
