@@ -11,17 +11,21 @@ package Cuenta;
  */
 public class cuenta {
     
-    private static double saldo;
+    private double saldo;
     
-    public static double getSaldo(){
-        return 0;
+    public cuenta(double x){
+        saldo = x;
     }
     
-    public static void ingresar(double x){
-        saldo = 0;
+    public  double getSaldo(){
+        return saldo;
     }
     
-    public static void retirar(double x){
-        saldo = 0;
+    public  void ingresar(double x){
+        saldo += x;
+    }
+    
+    public void retirar(double x){
+        saldo = saldo - x;
     }
 }

@@ -9,34 +9,29 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
  * @author usuario
  */
 public class CuentaTest {
+    static cuenta cuenta1;
+    static cuenta cuenta2;
     
-    public CuentaTest() {
+    @Before
+    public void setUp() {
+        cuenta1 = new cuenta(0.0);
+        cuenta2 = new cuenta(0.0);
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
     @Test
     public void testIngresar_double() throws Exception{
         System.out.println("Ingresar");
         double x = 1000.0;
         try{
-            cuenta.ingresar(x);
-            assertTrue(cuenta.getsaldo()==1000.0);
+            cuenta1.ingresar(x);
+            assertTrue(cuenta1.getSaldo()==1000.0);
         } catch (Exception e){
             fail("No deberia haber fallado");
         }
@@ -47,10 +42,12 @@ public class CuentaTest {
         System.out.println("Retirar");
         double x = 1000.0;
         try{
-            cuenta.retirar(x);
+            cuenta2.retirar(x);
+            System.out.println(cuenta2.getSaldo());
+            assertEquals(0.0,0.0 , cuenta2.getSaldo());
+            //assertTrue(cuenta2.getSaldo()==-1000.0);
         } catch (Exception e){
             fail("No deberia haber fallado");
         }
-        assertEquals(0.0, cuenta.getSaldo());
     }
 }
